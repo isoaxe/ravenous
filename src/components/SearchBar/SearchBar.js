@@ -16,10 +16,6 @@ function SearchBar(props) {
     return ((sortBy === sortByOption) ? 'active' : '');
   }
 
-  function handleSortByChange(sortByOption) {
-    setSortBy(sortByOption);
-  }
-
   function handleTermChange(e) {
     setTerm(e.target.value);
   }
@@ -36,12 +32,11 @@ function SearchBar(props) {
   function renderSortByOptions() {
     return Object.keys(sortByOptions).map(sortByOption => {
       let sortByOptionValue = sortByOptions[sortByOption];
-      console.log(sortByOptionValue);
       return (
       <li
       key={sortByOptionValue}
       className={getSortByClass(sortByOptionValue)}
-      onClick={() => handleSortByChange(sortByOptionValue)}
+      onClick={() => setSortBy(sortByOptionValue)}
       >
         {sortByOption}
       </li>);
