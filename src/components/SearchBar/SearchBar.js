@@ -17,16 +17,36 @@ function SearchBar(props) {
   }
 
   function handleTermChange(e) {
+    if (e.target.value !== '') {
+      document.getElementById("term").style.outline = 0;
+    }
     setTerm(e.target.value);
   }
 
   function handleLocationChange(e) {
+    if (e.target.value !== '') {
+      document.getElementById("location").style.outline = 0;
+    }
     setLocation(e.target.value);
   }
 
   function handleSearch(e) {
-    props.searchYelp(term, location, sortBy);
+    if (checkInputs(term, location)) {
+      props.searchYelp(term, location, sortBy);
+    }
     e.preventDefault();
+  }
+
+  function checkInputs(term, location) {
+    if (term === '') {
+      document.getElementById("term").style.outline = "medium solid red";
+      document.getElementById("term").placeholder = "You must enter a search term";
+    }
+    if (location === '') {
+      document.getElementById("location").style.outline = "medium solid red";
+      document.getElementById("location").placeholder = "You must enter a search location";
+    }
+    return !(term === '' || location === '');
   }
 
   function renderSortByOptions() {
@@ -52,9 +72,11 @@ function SearchBar(props) {
       </div>
       <div className="SearchBar-fields">
         <input
+        id="term"
         placeholder="Search Businesses"
         onChange={handleTermChange} />
         <input
+        id="location"
         placeholder="Where?"
         onChange={handleLocationChange} />
       </div>
