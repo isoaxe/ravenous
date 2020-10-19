@@ -22,7 +22,7 @@
   justify-content: space-between;
 }
 
-.Business-information p {
+.Business-information p, a {
   font-size: .88rem;
   font-weight: 300;
   line-height: 1rem;

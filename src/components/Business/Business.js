@@ -2,6 +2,8 @@ import React from 'react';
 import './Business.css';
 
 function Business(props) {
+  const googleMaps = `http://maps.google.com/?q=${props.business.address} ${props.business.city} ${props.business.zipCode}`;
+
   return (
     <div className="Business">
       <div className="image-container">
@@ -10,7 +12,7 @@ function Business(props) {
       <h2>{props.business.name}</h2>
       <div className="Business-information">
         <div className="Business-address">
-          <p>{props.business.address}</p>
+          <a href={googleMaps} target="_blank" rel='noopener noreferrer'>{props.business.address}</a>
           <p>{props.business.city}</p>
           <p>{props.business.zipCode}</p>
         </div>
