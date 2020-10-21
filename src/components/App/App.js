@@ -12,8 +12,8 @@ function App() {
   function searchYelp(term, location, sortBy) {
     Yelp.search(term, location, sortBy).then(businesses => {
       setBusinesses(businesses);
+      setHasRun(true);
     });
-    setHasRun(true);
   }
 
   return (
