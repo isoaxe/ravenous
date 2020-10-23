@@ -7,7 +7,7 @@ function Business(props) {
   return (
     <div className="Business">
       <div className="image-container">
-        <img src={props.business.imageSrc} alt=''/>
+        <img src={props.business.imageSrc} alt='' onClick={() => {window.open(props.business.imageSrc)}}/>
       </div>
       <h2>{props.business.name}</h2>
       <div className="Business-information">
