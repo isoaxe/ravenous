@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import PriceSlider from '../PriceSlider/PriceSlider.js'
 import './SearchBar.css';
+
 
 function SearchBar(props) {
   const [term, setTerm] = useState('');
@@ -79,6 +81,7 @@ function SearchBar(props) {
         id="location"
         placeholder="Where?"
         onChange={handleLocationChange} />
+        <PriceSlider/>
       </div>
       <div className="SearchBar-submit">
         <button onClick={handleSearch}>Let's Go</button>
