@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import { Typography, Slider } from '@material-ui/core';
 import './PriceSlider.css';
 
 const marks = [

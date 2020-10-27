@@ -77,6 +77,10 @@
   background-color: #a7874b;
 }
 
+#term, #location {
+  margin: 20px;
+}
+
 @media only screen and (max-width: 560px) {
   .SearchBar {
     background-image: url('./background_search_mobile.jpg');

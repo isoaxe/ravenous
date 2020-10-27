@@ -3,10 +3,8 @@ API documentation can be found at https://material-ui.com/api/slider/
 */
 
 .root {
-  background-color: #728193;
-  margin: 30;
-}
-
-#slider-title {
-  color: white;
+  background-color: #666f7d;
+  border-radius: 10px;
+  padding: 5px 20px;
+  width: 200px;
 }
