@@ -5,6 +5,6 @@ API documentation can be found at https://material-ui.com/api/slider/
 .root {
   background-color: #666f7d;
   border-radius: 10px;
-  padding: 5px 20px;
-  width: 200px;
+  padding: 5px 15px;
+  width: 120px;
 }
