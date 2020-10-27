@@ -25,6 +25,18 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
+function label(index) {
+  if (index === 1) {
+    return '$';
+  } else if (index === 2) {
+    return '$$';
+  } else if (index === 3) {
+    return '$$$';
+  } else {
+    return '$$$$';
+  }
+}
+
 
 function RangeSlider() {
   const [price, setPrice] = useState([1, 4]);
@@ -46,6 +58,7 @@ function RangeSlider() {
         min={1}
         max={4}
         getAriaValueText={valuetext}
+        valueLabelFormat={label}
         marks={marks}
       />
     </div>
