@@ -77,11 +77,11 @@ function SearchBar(props) {
         id="term"
         placeholder="Search Businesses"
         onChange={handleTermChange} />
+        <PriceSlider />
         <input
         id="location"
         placeholder="Where?"
         onChange={handleLocationChange} />
-        <PriceSlider />
       </div>
       <div className="SearchBar-submit">
         <button onClick={handleSearch}>Let's Go</button>
