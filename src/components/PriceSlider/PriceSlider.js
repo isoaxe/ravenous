@@ -6,7 +6,7 @@ import './PriceSlider.css';
 function RangeSlider() {
   const [price, setPrice] = useState([1, 4]);
 
-  const handleChange = (event, newPrice) => {
+  function handleChange(event, newPrice) {
     setPrice(newPrice);
   };
 
