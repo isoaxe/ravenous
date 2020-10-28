@@ -3,7 +3,7 @@ import { Typography, Slider } from '@material-ui/core';
 import './PriceSlider.css';
 
 
-function RangeSlider() {
+function PriceSlider() {
   const [price, setPrice] = useState([1, 4]);
 
   function handleChange(event, newPrice) {
@@ -40,4 +40,4 @@ function label(index) {
   }
 }
 
-export default RangeSlider;
+export default PriceSlider;
