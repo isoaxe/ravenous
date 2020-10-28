@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import PriceSlider from '../PriceSlider/PriceSlider.js'
 import './SearchBar.css';
+
 
 function SearchBar(props) {
   const [term, setTerm] = useState('');
@@ -75,6 +77,7 @@ function SearchBar(props) {
         id="term"
         placeholder="Search Businesses"
         onChange={handleTermChange} />
+        <PriceSlider />
         <input
         id="location"
         placeholder="Where?"

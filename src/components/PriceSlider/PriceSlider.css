@@ -1,0 +1,10 @@
+/*
+API documentation can be found at https://material-ui.com/api/slider/
+*/
+
+.root {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 15px;
+  width: 120px;
+}
