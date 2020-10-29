@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Typography, Slider } from '@material-ui/core';
 import './PriceSlider.css';
 
 
-function PriceSlider() {
-  const [price, setPrice] = useState([1, 4]);
-
-  function handleChange(event, newPrice) {
-    setPrice(newPrice);
-  };
+function PriceSlider(props) {
 
   return (
     <div className="root">
@@ -16,8 +11,8 @@ function PriceSlider() {
         Price Range
       </Typography>
       <Slider
-        value={price}
-        onChange={handleChange}
+        value={props.price}
+        onChange={props.onChange}
         valueLabelDisplay="auto"
         valueLabelFormat={label}
         aria-labelledby="range-slider-custom"

@@ -14,6 +14,7 @@ function SearchBar(props) {
   const [term, setTerm] = useState('');
   const [location, setLocation] = useState('');
   const [sortBy, setSortBy] = useState('best_match');
+  const [price, setPrice] = useState([1, 4]);
 
   const enterKey = useKeyPress('Enter');
 
@@ -33,6 +34,10 @@ function SearchBar(props) {
       document.getElementById("location").style.outline = 0;
     }
     setLocation(e.target.value);
+  }
+
+  function handlePriceChange(e, newPrice) {
+    setPrice(newPrice);
   }
 
   function handleSearch(e) {
@@ -74,7 +79,9 @@ function SearchBar(props) {
           id="term"
           placeholder="Search Businesses"
           onChange={handleTermChange} />
-        <PriceSlider />
+        <PriceSlider
+          price={price}
+          onChange={handlePriceChange} />
         <input
           id="location"
           placeholder="Where?"
