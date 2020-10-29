@@ -3,6 +3,12 @@ import PriceSlider from '../PriceSlider/PriceSlider.js'
 import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
 
+const sortByOptions = {
+  'Best Match': 'best_match',
+  'Highest Rated': 'rating',
+  'Most Reviewed': 'review_count'
+};
+
 
 function SearchBar(props) {
   const [term, setTerm] = useState('');
@@ -10,11 +16,6 @@ function SearchBar(props) {
   const [sortBy, setSortBy] = useState('best_match');
 
   const enterKey = useKeyPress('Enter');
-  const sortByOptions = {
-    'Best Match': 'best_match',
-    'Highest Rated': 'rating',
-    'Most Reviewed': 'review_count'
-  };
 
   function getSortByClass(sortByOption) {
     return ((sortBy === sortByOption) ? 'active' : '');
@@ -45,18 +46,6 @@ function SearchBar(props) {
     if (checkInputs(term, location)) {
       props.searchYelp(term, location, sortBy);
     }
-  }
-
-  function checkInputs(term, location) {
-    if (term === '') {
-      document.getElementById("term").style.outline = "medium solid red";
-      document.getElementById("term").placeholder = "You must enter a search term";
-    }
-    if (location === '') {
-      document.getElementById("location").style.outline = "medium solid red";
-      document.getElementById("location").placeholder = "You must enter a search location";
-    }
-    return !(term === '' || location === '');
   }
 
   function renderSortByOptions() {
@@ -97,6 +86,19 @@ function SearchBar(props) {
       </div>
     </div>
   );
+}
+
+// Helper function to warn user if nothing has been entered before searching.
+function checkInputs(term, location) {
+  if (term === '') {
+    document.getElementById("term").style.outline = "medium solid red";
+    document.getElementById("term").placeholder = "You must enter a search term";
+  }
+  if (location === '') {
+    document.getElementById("location").style.outline = "medium solid red";
+    document.getElementById("location").placeholder = "You must enter a search location";
+  }
+  return !(term === '' || location === '');
 }
 
 export default SearchBar;
