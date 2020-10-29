@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PriceSlider from '../PriceSlider/PriceSlider.js'
+import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
 
 
@@ -8,6 +9,7 @@ function SearchBar(props) {
   const [location, setLocation] = useState('');
   const [sortBy, setSortBy] = useState('best_match');
 
+  const enterKey = useKeyPress('Enter');
   const sortByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -37,6 +39,12 @@ function SearchBar(props) {
       props.searchYelp(term, location, sortBy);
     }
     e.preventDefault();
+  }
+
+  function handleSearchKey() {
+    if (checkInputs(term, location)) {
+      props.searchYelp(term, location, sortBy);
+    }
   }
 
   function checkInputs(term, location) {
@@ -85,6 +93,7 @@ function SearchBar(props) {
       </div>
       <div className="SearchBar-submit">
         <button onClick={handleSearch}>Let's Go</button>
+        {enterKey && handleSearchKey()}
       </div>
     </div>
   );
