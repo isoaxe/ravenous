@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import BusinessList from '../BusinessList/BusinessList.js';
 import SearchBar from '../SearchBar/SearchBar.js';
-import searchYelp from '../../util/Yelp.js';
+import searchYelp from '../../util/searchYelp.js';
 
 
 function App() {

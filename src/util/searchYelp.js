@@ -25,5 +25,4 @@ function searchYelp(term, location, sortBy) {
   });
 }
 
-
 export default searchYelp;
