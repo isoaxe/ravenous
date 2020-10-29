@@ -37,14 +37,14 @@ function SearchBar(props) {
 
   function handleSearch(e) {
     if (checkInputs(term, location)) {
-      props.searchYelp(term, location, sortBy);
+      props.yelpBusinesses(term, location, sortBy);
     }
     e.preventDefault();
   }
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
-      props.searchYelp(term, location, sortBy);
+      props.yelpBusinesses(term, location, sortBy);
     }
   }
 
