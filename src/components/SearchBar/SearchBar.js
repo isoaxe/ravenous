@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PriceSlider from '../PriceSlider/PriceSlider.js'
 import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
@@ -17,6 +17,7 @@ function SearchBar(props) {
   const [price, setPrice] = useState([1, 4]);
 
   const enterKey = useKeyPress('Enter');
+  const { yelpBusinesses } = props;
 
   function getSortByClass(sortByOption) {
     return ((sortBy === sortByOption) ? 'active' : '');
@@ -40,12 +41,12 @@ function SearchBar(props) {
     setPrice(newPrice);
   }
 
-  function handleSearch(e) {
+  const handleSearch = useCallback( (e) => {
     if (checkInputs(term, location)) {
-      props.yelpBusinesses(term, location, sortBy);
+      yelpBusinesses(term, location, sortBy);
     }
-    e.preventDefault();
-  }
+    e && e.preventDefault();
+  }, [yelpBusinesses, term, location, sortBy]);
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
@@ -66,6 +67,11 @@ function SearchBar(props) {
       </li>);
     });
   }
+
+  useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortBy])
 
   return (
     <div className="SearchBar">
