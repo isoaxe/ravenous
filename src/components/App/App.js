@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <h1>ravenous</h1>
-      <SearchBar yelpBusinesses={yelpBusinesses}/>
+      <SearchBar yelpBusinesses={yelpBusinesses} hasRun={hasRun}/>
       <BusinessList businesses={businesses} hasRun={hasRun}/>
     </div>
   );
