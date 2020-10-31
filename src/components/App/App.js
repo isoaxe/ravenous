@@ -9,8 +9,8 @@ function App() {
   const [businesses, setBusinesses] = useState([]);
   const [hasRun, setHasRun] = useState(false);
 
-  function yelpBusinesses(term, location, sortBy) {
-    searchYelp(term, location, sortBy).then(businesses => {
+  function yelpBusinesses(term, location, priceString, sortBy) {
+    searchYelp(term, location, priceString, sortBy).then(businesses => {
       setBusinesses(businesses);
       setHasRun(true);
     });
