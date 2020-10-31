@@ -75,9 +75,9 @@ function SearchBar(props) {
       let sortByOptionValue = sortByOptions[sortByOption];
       return (
       <li
-      key={sortByOptionValue}
-      className={getSortByClass(sortByOptionValue)}
-      onClick={() => setSortBy(sortByOptionValue)}
+        key={sortByOptionValue}
+        className={getSortByClass(sortByOptionValue)}
+        onClick={() => setSortBy(sortByOptionValue)}
       >
         {sortByOption}
       </li>);
