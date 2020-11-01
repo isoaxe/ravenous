@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "use-places-autocomplete": "^1.5.9",
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
