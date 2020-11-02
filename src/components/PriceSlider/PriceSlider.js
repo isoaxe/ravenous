@@ -7,7 +7,7 @@ import './PriceSlider.css';
 function PriceSlider(props) {
 
   return (
-    <div className="root">
+    <div className="price-slider">
       <Typography id="slider-title">
         Price Range
       </Typography>
