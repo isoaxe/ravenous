@@ -73,3 +73,5 @@ const PlacesAutocomplete = () => {
     </div>
   );
 };
+
+export default PlacesAutocomplete;
