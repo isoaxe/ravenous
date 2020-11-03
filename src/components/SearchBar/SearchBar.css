@@ -79,6 +79,7 @@
 
 #term, #location {
   margin: 10px;
+  height: 17px;
 }
 
 @media only screen and (max-width: 560px) {
