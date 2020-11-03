@@ -107,11 +107,10 @@ function SearchBar(props) {
         <PriceSlider
           price={price}
           onChange={handlePriceChange} />
-        <input
+        <PlacesAutocomplete
           id="location"
-          placeholder="Where?"
+          location={location}
           onChange={handleLocationChange} />
-        <PlacesAutocomplete />
       </div>
       <div className="SearchBar-submit">
         <button onClick={handleSearch}>Let's Go</button>

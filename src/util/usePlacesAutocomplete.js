@@ -5,10 +5,9 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-const PlacesAutocomplete = () => {
+const PlacesAutocomplete = (props) => {
   const {
     ready,
-    value,
     suggestions: { status, data },
     setValue,
     clearSuggestions,
@@ -18,16 +17,12 @@ const PlacesAutocomplete = () => {
     },
     debounce: 300,
   });
+  
   const ref = useOnclickOutside(() => {
     // When user clicks outside of the component, we can dismiss
     // the searched suggestions by calling this method
     clearSuggestions();
   });
-
-  const handleInput = (e) => {
-    // Update the keyword of the input element
-    setValue(e.target.value);
-  };
 
   const handleSelect = ({ description }) => () => {
     // When user selects a place, we can replace the keyword without request data from API
@@ -63,10 +58,11 @@ const PlacesAutocomplete = () => {
   return (
     <div ref={ref}>
       <input
-        value={value}
-        onChange={handleInput}
+        id="location"
+        value={props.location}
+        onChange={props.onChange}
         disabled={!ready}
-        placeholder="Where are you going?"
+        placeholder="Where?"
       />
       {/* We can use the "status" to decide whether we should display the dropdown or not */}
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
