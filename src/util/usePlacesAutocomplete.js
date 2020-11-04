@@ -3,6 +3,13 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+} from "@reach/combobox";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const PlacesAutocomplete = (props) => {
@@ -17,7 +24,7 @@ const PlacesAutocomplete = (props) => {
     },
     debounce: 300,
   });
-  
+
   const ref = useOnclickOutside(() => {
     // When user clicks outside of the component, we can dismiss
     // the searched suggestions by calling this method
@@ -55,19 +62,19 @@ const PlacesAutocomplete = (props) => {
       );
     });
 
-  return (
-    <div ref={ref}>
-      <input
-        id="location"
-        value={props.location}
-        onChange={props.onChange}
-        disabled={!ready}
-        placeholder="Where?"
-      />
-      {/* We can use the "status" to decide whether we should display the dropdown or not */}
-      {status === "OK" && <ul>{renderSuggestions()}</ul>}
-    </div>
-  );
-};
+    return (
+      <Combobox onSelect={handleSelect} aria-labelledby="demo">
+        <ComboboxInput id="location" value={props.location} onChange={props.onChange} placeholder="Where?" disabled={!ready} />
+        <ComboboxPopover>
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ id, description }) => (
+                <ComboboxOption key={id} value={description} />
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
+    );
+  };
 
 export default PlacesAutocomplete;
