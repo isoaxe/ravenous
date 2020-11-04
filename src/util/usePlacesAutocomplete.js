@@ -10,6 +10,7 @@ import {
   ComboboxList,
   ComboboxOption,
 } from "@reach/combobox";
+import "@reach/combobox/styles.css";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const PlacesAutocomplete = (props) => {
