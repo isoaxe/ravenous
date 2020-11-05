@@ -1,8 +1,5 @@
 import React from "react";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
+import usePlacesAutocomplete from "use-places-autocomplete";
 import {
   Combobox,
   ComboboxInput,
@@ -27,12 +24,6 @@ const PlacesAutocomplete = (props) => {
     debounce: 300,
   });
 
-  const ref = useOnclickOutside(() => {
-    // When user clicks outside of the component, we can dismiss
-    // the searched suggestions by calling this method
-    clearSuggestions();
-  });
-
   const handleChange = (e) => {
     setValue(e.target.value);
     props.onChange(e);
@@ -43,16 +34,6 @@ const PlacesAutocomplete = (props) => {
     // by setting the second parameter to "false"
     setValue(description, false);
     clearSuggestions();
-
-    // Get latitude and longitude via utility functions
-    getGeocode({ address: description })
-      .then((results) => getLatLng(results[0]))
-      .then(({ lat, lng }) => {
-        console.log("📍 Coordinates: ", { lat, lng });
-      })
-      .catch((error) => {
-        console.log("😱 Error: ", error);
-      });
   };
 
   const renderSuggestions = () =>
