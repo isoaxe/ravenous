@@ -17,6 +17,7 @@ const PlacesAutocomplete = (props) => {
   const {
     ready,
     suggestions: { status, data },
+    value,
     setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
@@ -31,6 +32,11 @@ const PlacesAutocomplete = (props) => {
     // the searched suggestions by calling this method
     clearSuggestions();
   });
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    props.onChange(e);
+  };
 
   const handleSelect = ({ description }) => () => {
     // When user selects a place, we can replace the keyword without request data from API
@@ -65,7 +71,7 @@ const PlacesAutocomplete = (props) => {
 
     return (
       <Combobox onSelect={handleSelect} aria-labelledby="demo">
-        <ComboboxInput id="location" value={props.location} onChange={props.onChange} placeholder="Where?" disabled={!ready} />
+        <ComboboxInput id="location" value={value} onChange={handleChange} placeholder="Where?" disabled={!ready} />
         <ComboboxPopover>
           <ComboboxList>
             {status === "OK" &&
