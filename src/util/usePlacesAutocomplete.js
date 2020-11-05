@@ -8,6 +8,7 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
+import './usePlacesAutocomplete.css';
 
 const PlacesAutocomplete = (props) => {
   // API response and params of the form:
@@ -46,7 +47,7 @@ const PlacesAutocomplete = (props) => {
           {status === "OK" &&
             data.map(({ place_id, structured_formatting: { main_text, secondary_text } }) => (
               <ComboboxOption key={place_id} value={main_text + ' ' + secondary_text}>
-                <span>{main_text}</span> <span>{secondary_text}</span>
+                <span className="main">{main_text}</span> <span className="secondary">{secondary_text}</span>
               </ComboboxOption>
             ))}
         </ComboboxList>
