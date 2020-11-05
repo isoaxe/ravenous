@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PlacesAutocomplete from '../../util/usePlacesAutocomplete.js'
+import PlacesAutocomplete from '../PlacesAutocomplete/usePlacesAutocomplete.js'
 import PriceSlider from '../PriceSlider/PriceSlider.js'
 import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
