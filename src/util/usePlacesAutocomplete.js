@@ -58,8 +58,10 @@ const PlacesAutocomplete = (props) => {
         <ComboboxPopover>
           <ComboboxList>
             {status === "OK" &&
-              data.map(({ place_id, description }) => (
-                <ComboboxOption key={place_id} value={description} />
+              data.map(({ place_id, structured_formatting: { main_text, secondary_text } }) => (
+                <ComboboxOption key={place_id} value={main_text + ' ' + secondary_text}>
+                  <span>{main_text}</span> <span>{secondary_text}</span>
+                </ComboboxOption>
               ))}
           </ComboboxList>
         </ComboboxPopover>
