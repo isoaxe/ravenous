@@ -38,20 +38,6 @@ const PlacesAutocomplete = (props) => {
     clearSuggestions();
   };
 
-  const renderSuggestions = () =>
-    data.map((suggestion) => {
-      const {
-        id,
-        structured_formatting: { main_text, secondary_text },
-      } = suggestion;
-
-      return (
-        <li key={id} onClick={handleSelect(suggestion)}>
-          <strong>{main_text}</strong> <small>{secondary_text}</small>
-        </li>
-      );
-    });
-
     return (
       <Combobox onSelect={handleSelect} aria-labelledby="demo">
         <ComboboxInput id="location" value={value} onChange={handleChange} placeholder="Where?" disabled={!ready} />
