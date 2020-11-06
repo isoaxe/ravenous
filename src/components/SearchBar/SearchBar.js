@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PlacesAutocomplete from '../../util/usePlacesAutocomplete.js'
+import PlacesAutocomplete from '../PlacesAutocomplete/PlacesAutocomplete.js'
 import PriceSlider from '../PriceSlider/PriceSlider.js'
 import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
@@ -33,10 +33,16 @@ function SearchBar(props) {
   }
 
   function handleLocationChange(e) {
-    if (e.target.value !== '') {
-      document.getElementById("location").style.outline = 0;
+    // Check if e is an event
+    if (e.target) {
+      if (e.target.value !== '') {
+        document.getElementById("location").style.outline = 0;
+      }
+      setLocation(e.target.value);
+    } else {
+      // And if e is not an event
+      setLocation(e);
     }
-    setLocation(e.target.value);
   }
 
   function handlePriceChange(e, newPrice) {
