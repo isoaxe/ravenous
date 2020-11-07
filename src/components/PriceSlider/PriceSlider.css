@@ -8,3 +8,9 @@ API documentation can be found at https://material-ui.com/api/slider/
   padding: 5px 15px;
   width: 120px;
 }
+
+#slider-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+}
