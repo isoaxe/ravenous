@@ -1,6 +1,6 @@
 # Ravenous
 
-[Ravenous](https://www.lucasoconnell.net/ravenous) is a single page React app that interacts with the Yelp API and was initially developed as part of the Web Development career path at Codecademy. However, it was greatly expanded since that and now has considerably greater functionality.
+[Ravenous](https://www.lucasoconnell.net/ravenous) is a single page React app that interacts with the Yelp API to search for restaurants and was initially developed as part of the Web Development career path at Codecademy. However, it was greatly expanded since that and now has considerably greater functionality.
 
 
 ## Technologies
@@ -12,7 +12,7 @@ The app boilerplate was created via the Node.js [`create-react-app`](https://rea
 
 This app allows the user to search for restaurants via the Yelp API. There is a field for a **Search Term**, a **Price Range** slider (1 to 4 based off Yelp's star system for pricing) and finally a **Location** field. The **Location** field utilises the [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete) node package to suggest and autocomplete location, which in turn uses the [Google Maps Places](https://developers.google.com/maps/documentation/javascript/places) API.
 
-Clicking 'Let's Go' or pressing enter will trigger a search. Results will be displayed below, with addresses clickable and triggering a Google Maps search on a new browser tab. Photos are also clickable, and open the restaurant's Yelp profile on a seperate tab.
+Clicking the 'Let's Go' button or pressing enter will trigger a search. Results will be displayed below, with addresses clickable and triggering a Google Maps search on a new browser tab. Photos are also clickable, and open the restaurant's Yelp profile on a seperate tab.
 
 Lastly, there is a **Sorting** function whereby the user can select from 'Best Match', 'Highest Rated' and 'Most Reviewed'. Clicking between these sorting options will send subsequent GET requests to the Yelp API and update the results below appropriately.
 
