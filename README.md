@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ravenous
 
-## Available Scripts
+[Ravenous](https://www.lucasoconnell.net/ravenous) is a single page React app that interacts with the Yelp API and was initially developed as part of the Web Development career path at Codecademy. However, it was greatly expanded since that and now has considerably greater functionality.
 
-In the project directory, you can run:
+
+## Technologies
+
+The app boilerplate was created via the Node.js [`create-react-app`](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) command which abstracts away preprocessing (via Babel) and bundling (via Webpack) automatically. This is in contrast to the way my [personal website](https://www.lucasoconnell.net/) was developed. Originally made with the old class-based syntax, it was refactored to take advantage of React hooks.
+
+
+## Functions
+
+This app allows the user to search for restaurants via the Yelp API. There is a field for a **Search Term**, a **Price Range** slider (1 to 4 based off Yelp's star system for pricing) and finally a **Location** field. The **Location** field utilises the [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete) node package to suggest and autocomplete location, which in turn uses the [Google Maps Places](https://developers.google.com/maps/documentation/javascript/places) API.
+
+Clicking 'Let's Go' or pressing enter will trigger a search. Results will be displayed below, with addresses clickable and triggering a Google Maps search on a new browser tab. Photos are also clickable, and open the restaurant's Yelp profile on a seperate tab.
+
+Lastly, there is a **Sorting** function whereby the user can select from 'Best Match', 'Highest Rated' and 'Most Reviewed'. Clicking between these sorting options will send subsequent GET requests to the Yelp API and update the results below appropriately.
+
+
+## Local Setup
+
+The project can be cloned and set up locally by the following CLI commands from the **ravenous directory**.
+
+### `npm install`
+
+Install all of the Node dependencies for React and other third party packages used in this project.
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits to the source code. You will also see any lint errors in the console.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Ravenous Screenshot](./Ravenous%20Screenshot.png?raw=true)
