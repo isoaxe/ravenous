@@ -2,6 +2,7 @@
   "name": "ravenous",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@reach/combobox": "^0.11.2",
