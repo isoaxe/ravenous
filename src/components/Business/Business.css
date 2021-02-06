@@ -17,6 +17,10 @@
   font-weight: 600;
 }
 
+.image-container img:hover {
+  cursor: pointer;
+}
+
 .Business-information {
   display: flex;
   justify-content: space-between;
