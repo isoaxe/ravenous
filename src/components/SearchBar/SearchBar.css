@@ -98,6 +98,8 @@
   }
 
   .SearchBar-fields input {
+    /* Font size kept at 16px to avoid zooming on input field selection. */
+    font-size: 16px;
     margin-right: 0;
     margin-bottom: .86rem;
   }
