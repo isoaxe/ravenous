@@ -1,6 +1,7 @@
 import React from 'react';
 import './Business.css';
 
+
 function Business(props) {
   const googleMaps = `http://maps.google.com/?q=${props.business.address} ${props.business.city} ${props.business.zipCode}`;
 

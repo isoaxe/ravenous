@@ -27,7 +27,12 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "func-style": ["warn", "declaration"],
+      "semi": ["warn", "always", {"omitLastInOneLineBlock": true}],
+      "no-multiple-empty-lines": ["warn", { "max": 2, "maxBOF": 0, "maxEOF": 0 }]
+    }
   },
   "browserslist": {
     "production": [
