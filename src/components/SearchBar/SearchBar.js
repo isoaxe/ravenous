@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PlacesAutocomplete from '../PlacesAutocomplete/PlacesAutocomplete.js'
-import PriceSlider from '../PriceSlider/PriceSlider.js'
+import PlacesAutocomplete from '../PlacesAutocomplete/PlacesAutocomplete.js';
+import PriceSlider from '../PriceSlider/PriceSlider.js';
 import useKeyPress from '../../util/useKeyPress.js';
 import './SearchBar.css';
 
@@ -96,7 +96,7 @@ function SearchBar(props) {
       handleSearch();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy])
+  }, [sortBy]);
 
   return (
     <div className="SearchBar">

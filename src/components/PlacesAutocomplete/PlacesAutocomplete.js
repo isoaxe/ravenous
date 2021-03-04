@@ -10,6 +10,7 @@ import {
 import "@reach/combobox/styles.css";
 import './PlacesAutocomplete.css';
 
+
 const PlacesAutocomplete = (props) => {
   // API response and params of the form:
   // const returnObj = usePlacesAutocomplete(parameterObj);
