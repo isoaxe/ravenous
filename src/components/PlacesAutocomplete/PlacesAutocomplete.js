@@ -27,14 +27,13 @@ function PlacesAutocomplete(props) {
     debounce: 300,
   });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setValue(e.target.value);
     props.onChange(e);
   };
 
-  const handleSelect = (description) => {
-    // When user selects a place, we can replace the keyword without request data from API
-    // by setting the second parameter to "false"
+  function handleSelect(description) {
+    // When user selects a place, we can replace the keyword without request data from API by setting the second parameter to "false"
     setValue(description, false);
     props.onChange(description);
     clearSuggestions();
