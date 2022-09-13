@@ -35,3 +35,15 @@ Builds the app via `npm run build` and then opens a Firebase hosting instance vi
 
 
 ![Ravenous Screenshot](./Ravenous%20Screenshot.png?raw=true)
+
+## Remote Hosting
+
+This section describes how to host the project with Firebase.
+
+1. Fork this repository.
+2. Create a new [Firebase](https://firebase.google.com/) account if you don't already have one.
+3. Install the Firebase CLI by running `npm install -g firebase-tools`.
+4. Log into Firebase using your Google account credentials with `firebase login` in the terminal.
+5. From the Firebase console in your browser, create a new project. Give it a name and `project-id`.
+6. Replace the value of the `default` field in [`.firebaserc`](https://github.com/Isoaxe/ravenous/blob/master/.firebaserc#L3) with your `project-id`.
+7. Execute the shell command `npm run deploy` to make a production build of the project and deploy to Firebase.
