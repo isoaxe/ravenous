@@ -18,13 +18,16 @@
     "whatwg-fetch": "^3.0.0"
   },
   "engines": {
-    "node": "14.0.0"
+    "node": "16"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "npm run build && firebase emulators:start",
+    "deploy": "npm run build && firebase deploy",
+    "deploy-heroku": "npm run build && git push heroku master"
   },
   "eslintConfig": {
     "extends": "react-app",
