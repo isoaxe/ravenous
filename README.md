@@ -47,3 +47,20 @@ This section describes how to host the project with Firebase.
 5. From the Firebase console in your browser, create a new project. Give it a name and `project-id`.
 6. Replace the value of the `default` field in [`.firebaserc`](https://github.com/Isoaxe/ravenous/blob/master/.firebaserc#L3) with your `project-id`.
 7. Execute the shell command `npm run deploy` to make a production build of the project and deploy to Firebase.
+
+
+## Configure Google Maps API Access
+
+For the autocomplete feature to work, access to the Google Maps API is required. If just testing locally, then the existing key can be used. Both `localhost:3000` and `localhost:5000` have been whitelisted.
+
+Once a new Firebase project has been created per the 'Remote Hosting' section above, a corresponding Google Cloud Platform project with the same `project-id` will have been established. Follow the steps below to obtain and set the Google Maps API key.
+
+1. Open the Google Maps Platform (GMP) [quickstart](https://developers.google.com/maps/get-started) guide.
+2. Per the first step of the guide, enable billing. There is a monthly credit of $200, so that should be more than enough if properly set up (see restricting access below).
+3. The second step is to enable the required API. Do this by [navigating](https://console.cloud.google.com/projectselector2/google/maps-apis/api-list) to the APIs section of GMP. Select your project and then select 'Places API' out of the 14 available. Click the 'enable' button. Do the same for 'Maps JavaScript API'.
+4. Go to the 'Credentials' section from the menu on the left. Click 'Create Credentials' -> 'API key' from the top.
+5. Click on the newly created API key in order to add restrictions. Because the key is public (see below), it would be subject to abuse if unrestricted. Within the 'Application restrictions' section, select the 'HTTP referrers' radio button and click 'ADD AN ITEM'. Then add the URLs that you wish to whitelist. Add `localhost:3000` and `localhost:5000` in addition to the hosted URLs so the app can be tested locally with this key. The full URL should be used, e.g. `http://localhost:3000`.
+6. In the 'API restrictions' section, select the 'Restrict key' radio button. Then select 'Places API' and 'Maps JavaScript API' from the dropdown and click 'Ok'. Click the 'Save' button.
+7. Click 'SHOW KEY' beside the newly created key and then copy to clipboard.
+8. Paste it as the `key` value inside the `src` of the [`<script/>`](https://github.com/Isoaxe/ravenous/blob/master/public/index.html#L34) tag in the public `index.html` file.
+9. Celebrate! Your app now has access to the Google Maps API and suggestions will be offered when typing in the 'Where?' field.
