@@ -19,7 +19,7 @@ Lastly, there is a **Sorting** function whereby the user can select from 'Best M
 
 ## Local Setup
 
-The project can be cloned and set up locally by the following CLI commands from the **ravenous directory**.
+The project can be forked and set up locally by the following CLI commands from the **ravenous directory**.
 
 ### `npm install`
 
