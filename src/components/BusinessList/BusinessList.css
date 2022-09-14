@@ -4,3 +4,9 @@
   flex-wrap: wrap;
   margin: 4.4rem 10%;
 }
+
+.error-text {
+  flex-direction: column;
+  text-align: center;
+  line-height: 3rem;
+}
