@@ -128,7 +128,7 @@ function SearchBar(props) {
       </div>
       <div className="SearchBar-submit">
         <PulseLoader loading={props.isLoading} color="#48ad6b" cssOverride={override} />
-        <button onClick={handleSearch}>Let's Go</button>
+        <button onClick={handleSearch} disabled={props.isLoading}>Let's Go</button>
         {enterKey && handleSearchKey()}
       </div>
     </div>
