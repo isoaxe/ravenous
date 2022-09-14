@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import PulseLoader from "react-spinners/PulseLoader";
 import PlacesAutocomplete from '../PlacesAutocomplete/PlacesAutocomplete.js';
 import PriceSlider from '../PriceSlider/PriceSlider.js';
 import useKeyPress from '../../util/useKeyPress.js';
@@ -119,6 +120,7 @@ function SearchBar(props) {
           onChange={handleLocationChange} />
       </div>
       <div className="SearchBar-submit">
+        <PulseLoader loading={true} color="#48ad6b" />
         <button onClick={handleSearch}>Let's Go</button>
         {enterKey && handleSearchKey()}
       </div>
