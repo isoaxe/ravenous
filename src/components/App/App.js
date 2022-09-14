@@ -8,9 +8,12 @@ import searchYelp from '../../util/searchYelp.js';
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [hasRun, setHasRun] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function yelpBusinesses(term, location, priceString, sortBy) {
+    setIsLoading(true);
     const response = await searchYelp(term, location, priceString, sortBy);
+    setIsLoading(false);
     setBusinesses(response);
     setHasRun(true);
   }
