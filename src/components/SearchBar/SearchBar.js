@@ -11,6 +11,13 @@ const sortByOptions = {
   'Most Reviewed': 'review_count'
 };
 
+const override = {
+  position: "absolute",
+  margin: "auto",
+  width: "100%",
+  padding: ".5rem 0rem",
+};
+
 
 function SearchBar(props) {
   const [term, setTerm] = useState('');
@@ -120,7 +127,7 @@ function SearchBar(props) {
           onChange={handleLocationChange} />
       </div>
       <div className="SearchBar-submit">
-        <PulseLoader loading={true} color="#48ad6b" />
+        <PulseLoader loading={true} color="#48ad6b" cssOverride={override} />
         <button onClick={handleSearch}>Let's Go</button>
         {enterKey && handleSearchKey()}
       </div>
