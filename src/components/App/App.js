@@ -9,11 +9,10 @@ function App() {
   const [businesses, setBusinesses] = useState([]);
   const [hasRun, setHasRun] = useState(false);
 
-  function yelpBusinesses(term, location, priceString, sortBy) {
-    searchYelp(term, location, priceString, sortBy).then(businesses => {
-      setBusinesses(businesses);
-      setHasRun(true);
-    });
+  async function yelpBusinesses(term, location, priceString, sortBy) {
+    const response = await searchYelp(term, location, priceString, sortBy);
+    setBusinesses(response);
+    setHasRun(true);
   }
 
   return (
