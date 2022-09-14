@@ -5,6 +5,16 @@ import Business from '../Business/Business.js';
 
 function BusinessList(props) {
 
+  if (props.businesses.error) {
+    return (
+      <div className="BusinessList">
+        <div>Oops! An error occurred.</div>
+        <div>Code: {props.businesses.error?.code}</div>
+        <div>Description: {props.businesses.error?.description}</div>
+      </div>
+    );
+  }
+
   if (!props.businesses.length && props.hasRun) {
     return (
       <div className="BusinessList">
