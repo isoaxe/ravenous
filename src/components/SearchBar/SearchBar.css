@@ -78,6 +78,14 @@
   background-color: #a7874b;
 }
 
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0.1;
+}
+
 #term, #location {
   margin: 10px;
   height: 17px;
