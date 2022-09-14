@@ -27,7 +27,7 @@ function SearchBar(props) {
 
   const priceString = priceQuery(price);
   const enterKey = useKeyPress('Enter');
-  const { yelpBusinesses } = props;
+  const { yelpBusinesses, isLoading, hasRun } = props;
 
   function getSortByClass(sortByOption) {
     return ((sortBy === sortByOption) ? 'active' : '');
@@ -66,7 +66,7 @@ function SearchBar(props) {
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
-      props.yelpBusinesses(term, location, priceString, sortBy);
+      yelpBusinesses(term, location, priceString, sortBy);
     }
   }
 
@@ -100,7 +100,7 @@ function SearchBar(props) {
   }
 
   useEffect(() => {
-    if (props.hasRun) {
+    if (hasRun) {
       handleSearch();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -127,8 +127,8 @@ function SearchBar(props) {
           onChange={handleLocationChange} />
       </div>
       <div className="SearchBar-submit">
-        <PulseLoader loading={props.isLoading} color="#48ad6b" cssOverride={override} />
-        <button className={props.isLoading ? "inactive" : "active"} onClick={handleSearch} disabled={props.isLoading}>Let's Go</button>
+        <PulseLoader loading={isLoading} color="#48ad6b" cssOverride={override} />
+        <button className={isLoading ? "inactive" : "active"} onClick={handleSearch} disabled={isLoading}>Let's Go</button>
         {enterKey && handleSearchKey()}
       </div>
     </div>
