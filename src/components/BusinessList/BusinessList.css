@@ -10,3 +10,16 @@
   text-align: center;
   line-height: 3rem;
 }
+
+.primary-text {
+  font-size: 25px;
+  color: red;
+}
+
+.secondary-header {
+  font-weight: 800;
+}
+
+.secondary-text {
+  font-weight: 300;
+}
