@@ -24,6 +24,8 @@ async function searchYelp(term, location, priceString, sortBy) {
       reviewCount: business.review_count,
       url: business.url
     }));
+  } else {
+    return jsonResponse;
   }
 }
 
