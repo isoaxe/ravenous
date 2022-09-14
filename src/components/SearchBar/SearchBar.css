@@ -59,6 +59,7 @@
 
 .SearchBar-submit {
   text-align: center;
+  position: relative;
 }
 
 .SearchBar-submit button {
