@@ -127,7 +127,7 @@ function SearchBar(props) {
           onChange={handleLocationChange} />
       </div>
       <div className="SearchBar-submit">
-        <PulseLoader loading={true} color="#48ad6b" cssOverride={override} />
+        <PulseLoader loading={props.isLoading} color="#48ad6b" cssOverride={override} />
         <button onClick={handleSearch}>Let's Go</button>
         {enterKey && handleSearchKey()}
       </div>
