@@ -102,9 +102,7 @@ function SearchBar(props) {
   }
 
   useEffect(() => {
-    if (hasRun) {
-      handleSearch();
-    }
+    if (hasRun) handleSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortBy]);
 
