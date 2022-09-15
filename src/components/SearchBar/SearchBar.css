@@ -59,6 +59,7 @@
 
 .SearchBar-submit {
   text-align: center;
+  position: relative;
 }
 
 .SearchBar-submit button {
@@ -75,6 +76,14 @@
 .SearchBar-submit button:hover {
   cursor: pointer;
   background-color: #a7874b;
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0.4;
 }
 
 #term, #location {

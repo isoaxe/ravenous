@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import PulseLoader from "react-spinners/PulseLoader";
 import PlacesAutocomplete from '../PlacesAutocomplete/PlacesAutocomplete.js';
 import PriceSlider from '../PriceSlider/PriceSlider.js';
 import useKeyPress from '../../util/useKeyPress.js';
@@ -10,6 +11,13 @@ const sortByOptions = {
   'Most Reviewed': 'review_count'
 };
 
+const override = {
+  position: "absolute",
+  margin: "auto",
+  width: "100%",
+  padding: ".5rem 0rem",
+};
+
 
 function SearchBar(props) {
   const [term, setTerm] = useState('');
@@ -19,7 +27,7 @@ function SearchBar(props) {
 
   const priceString = priceQuery(price);
   const enterKey = useKeyPress('Enter');
-  const { yelpBusinesses } = props;
+  const { yelpBusinesses, hasRun, isLoading, setIsLoading } = props;
 
   function getSortByClass(sortByOption) {
     return ((sortBy === sortByOption) ? 'active' : '');
@@ -51,14 +59,16 @@ function SearchBar(props) {
 
   const handleSearch = useCallback( (e) => {
     if (checkInputs(term, location)) {
+      setIsLoading(true);
       yelpBusinesses(term, location, priceString, sortBy);
     }
     e && e.preventDefault();
-  }, [yelpBusinesses, term, location, priceString, sortBy]);
+  }, [setIsLoading, yelpBusinesses, term, location, priceString, sortBy]);
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
-      props.yelpBusinesses(term, location, priceString, sortBy);
+      setIsLoading(true);
+      yelpBusinesses(term, location, priceString, sortBy);
     }
   }
 
@@ -92,11 +102,13 @@ function SearchBar(props) {
   }
 
   useEffect(() => {
-    if (props.hasRun) {
-      handleSearch();
-    }
+    if (hasRun) handleSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortBy]);
+
+  useEffect(() => {
+    if (enterKey && !isLoading) handleSearchKey();
+  });
 
   return (
     <div className="SearchBar">
@@ -119,8 +131,18 @@ function SearchBar(props) {
           onChange={handleLocationChange} />
       </div>
       <div className="SearchBar-submit">
-        <button onClick={handleSearch}>Let's Go</button>
-        {enterKey && handleSearchKey()}
+        <PulseLoader
+          loading={isLoading}
+          color="#48ad6b"
+          cssOverride={override}
+        />
+        <button
+          className={isLoading ? "inactive" : "active"}
+          onClick={handleSearch}
+          disabled={isLoading}
+        >
+          Let's Go
+        </button>
       </div>
     </div>
   );

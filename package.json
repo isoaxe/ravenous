@@ -14,6 +14,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^4.0.3",
+    "react-spinners": "^0.13.4",
     "use-places-autocomplete": "^1.5.9",
     "whatwg-fetch": "^3.0.0"
   },

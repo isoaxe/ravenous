@@ -8,9 +8,11 @@ import searchYelp from '../../util/searchYelp.js';
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [hasRun, setHasRun] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function yelpBusinesses(term, location, priceString, sortBy) {
     const response = await searchYelp(term, location, priceString, sortBy);
+    setIsLoading(false);
     setBusinesses(response);
     setHasRun(true);
   }
@@ -18,8 +20,16 @@ function App() {
   return (
     <div className="App">
       <h1>ravenous</h1>
-      <SearchBar yelpBusinesses={yelpBusinesses} hasRun={hasRun}/>
-      <BusinessList businesses={businesses} hasRun={hasRun}/>
+      <SearchBar
+        yelpBusinesses={yelpBusinesses}
+        hasRun={hasRun}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      />
+      <BusinessList
+        businesses={businesses}
+        hasRun={hasRun}
+      />
     </div>
   );
 }
