@@ -11,7 +11,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function yelpBusinesses(term, location, priceString, sortBy) {
-    setIsLoading(true);
     const response = await searchYelp(term, location, priceString, sortBy);
     setIsLoading(false);
     setBusinesses(response);
@@ -21,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>ravenous</h1>
-      <SearchBar yelpBusinesses={yelpBusinesses} hasRun={hasRun} isLoading={isLoading} />
+      <SearchBar yelpBusinesses={yelpBusinesses} hasRun={hasRun} isLoading={isLoading} setIsLoading={setIsLoading} />
       <BusinessList businesses={businesses} hasRun={hasRun} />
     </div>
   );
