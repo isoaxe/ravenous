@@ -107,7 +107,7 @@ function SearchBar(props) {
   }, [sortBy]);
 
   useEffect(() => {
-    if (enterKey) handleSearchKey();
+    if (enterKey && !isLoading) handleSearchKey();
   });
 
   return (
