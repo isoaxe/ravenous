@@ -107,6 +107,10 @@ function SearchBar(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortBy]);
 
+  useEffect(() => {
+    if (enterKey) handleSearchKey();
+  });
+
   return (
     <div className="SearchBar">
       <div className="SearchBar-sort-options">
@@ -140,7 +144,6 @@ function SearchBar(props) {
         >
           Let's Go
         </button>
-        {enterKey && handleSearchKey()}
       </div>
     </div>
   );
