@@ -27,7 +27,7 @@ function SearchBar(props) {
 
   const priceString = priceQuery(price);
   const enterKey = useKeyPress('Enter');
-  const { yelpBusinesses, isLoading, hasRun } = props;
+  const { yelpBusinesses, hasRun, isLoading, setIsLoading } = props;
 
   function getSortByClass(sortByOption) {
     return ((sortBy === sortByOption) ? 'active' : '');
@@ -59,10 +59,11 @@ function SearchBar(props) {
 
   const handleSearch = useCallback( (e) => {
     if (checkInputs(term, location)) {
+      setIsLoading(true);
       yelpBusinesses(term, location, priceString, sortBy);
     }
     e && e.preventDefault();
-  }, [yelpBusinesses, term, location, priceString, sortBy]);
+  }, [setIsLoading, yelpBusinesses, term, location, priceString, sortBy]);
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
