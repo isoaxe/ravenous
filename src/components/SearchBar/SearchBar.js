@@ -67,6 +67,7 @@ function SearchBar(props) {
 
   function handleSearchKey() {
     if (checkInputs(term, location)) {
+      setIsLoading(true);
       yelpBusinesses(term, location, priceString, sortBy);
     }
   }
