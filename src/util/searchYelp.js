@@ -2,7 +2,7 @@
 const apiKey = '7XO3wpS0y_k0hZwjosDddypgOk7wGApu9qgYeMIELYM_rXP-b4M3Vkriy7y5wtzvYMJ_faFlpvahmeQHGEGikl2NHgwMasbhLk9Oe0XBDPHcSSI3_AYdEb-NycfQXnYx';
 
 async function searchYelp(term, location, priceString, sortBy) {
-  const corsProxy = "https://private-cors-server.up.railway.app/";
+  const corsProxy = "https://proxy-ibmasyzzya-uc.a.run.app/";
   const yelpApi = "https://api.yelp.com/v3/businesses/search";
   const searchParams = `?term=${term}&location=${location}&price=${priceString}&sort_by=${sortBy}`;
   const fetchOptions = { headers: { Authorization: `Bearer ${apiKey}`}};
