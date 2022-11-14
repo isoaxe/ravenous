@@ -27,8 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "npm run build && firebase emulators:start",
-    "deploy": "npm run build && firebase deploy",
-    "deploy-heroku": "npm run build && git push heroku master"
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app",
